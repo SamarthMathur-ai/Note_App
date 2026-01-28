@@ -1,5 +1,4 @@
-const sdbar = document.querySelector('#sidebar');
-const sdbarbtn = document.querySelector('#sidebarbtn')
+
 // document.getElementById('#head').click()
 // * WRong for the following reason 1. don't use head 2. click doesn't always work use focus
 document.getElementById('head').focus()
@@ -15,6 +14,8 @@ const about = document.querySelector('#about')
 const aboutBox = document.querySelector('#aboutBox')
 
 
+
+
 function headEnter(event) {
     if(event.key == 'Enter') {
         document.getElementById('note').focus()
@@ -23,18 +24,7 @@ function headEnter(event) {
     }
 }
 
-sdbarbtn.addEventListener('click', () => {
-    sdbar.classList.toggle('open');
-    // head.classList.toggle('open');
-    // note.classList.toggle('opennt')
-    console.log('sidebar clicked');
 
-    // * We have to put this condition on sdbarbtn instesd of svdnodt cuz in previous it was depending upon if we have clicked on svd btn which is wrong logic.
-    if(!sdbar.classList.contains('open')) {
-        svdnotecont.classList.remove('open')
-    }
-
-})
 
 head.addEventListener('keydown', headEnter)
 

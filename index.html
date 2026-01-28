@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Basic Notes App</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu"
+    />
 </head>
+
 <body id="body">
+
     <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+
     <div id="container">
 
+        <!-- App Bar -->
         <div id="appbar" class="appbar">
-
             <button id="sidebarbtn" class="sbtn">
                 <span class="material-symbols-outlined">menu</span>
             </button>
-            
+
             <button id="savebtn" class="sbtn">Save</button>
-            
         </div>
+
+        <!-- Main Layout -->
         <div id="layout">
+
+            <!-- Sidebar -->
             <div id="sidebar">
-                <button id="prevNotes" class="sideIcon">Saved Notes</button>
-                <button id="about" class="sideIcon">Abbout</button>
-            </div>
-            <div id="notediv">
+                <div>
+                    <img src="book_ribbon_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="book_ribbon">
+                    <button id="prevNotes" class="sbtn sideIcon">Saved Notes</button>
+
+                </div>
                 
+                <button id="about" class="sbtn sideIcon">Abbout</button>
+            </div>
+
+            <!-- Note Area -->
+            <div id="notediv">
                 <textarea name="head" id="head" rows="1" cols="1"></textarea>
                 <textarea readonly name="note" id="note" rows="5" cols="33"></textarea>
             </div>
+
         </div>
-        
-        <div id="savedCont" class="butbox""></div>
+
+        <!-- Popups / Containers -->
+        <div id="savedCont" class="butbox"></div>
         <div id="aboutBox" class="butbox"></div>
-        
+
     </div>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script type="module" src="script.js"></script>
+    <script type="module" src="sidebar.js""></script>
+
 </body>
 </html>
