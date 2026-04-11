@@ -15,17 +15,19 @@
 
 <body id="body">
 
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+    
 
     <div id="container">
 
         <!-- App Bar -->
         <div id="appbar" class="appbar">
+            
             <button id="sidebarbtn" class="sbtn">
-                <span class="material-symbols-outlined">menu</span>
+                <img src="menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="menu" class="appbarimg">
             </button>
-
+            <p> My first simple notes app</p>
             <button id="savebtn" class="sbtn">Save</button>
+            <button id="deletebtn" class="sbtn">Delete</button>
         </div>
 
         <!-- Main Layout -->
@@ -42,9 +44,9 @@
                         <button id="prevNotes" class="sbtn sideIcon">
                             <p>Saved Notes</p>
                         </button>
-                        <!-- <button id="about" class="sbtn sideIcon">
+                        <button id="about" class="sbtn sideIcon">
                             <p>About</p>
-                        </button> -->
+                        </button>
                     </div>
                 </div>
                 
@@ -66,8 +68,10 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
     <script type="module" src="script.js"></script>
-    <script type="module" src="sidebar.js""></script>
+    <script type="module" src="sidebar.js"></script>
+    <script type="module" src="savebtn.js"></script>
 
 </body>
 </html>

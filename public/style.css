@@ -37,6 +37,13 @@ body {
 
     display: flex;
     justify-content: flex-end;
+    
+}
+
+#appbar p {
+    margin: auto;
+    color: #fefae0;
+    font-size: 20px;
 }
 
 
@@ -46,7 +53,7 @@ body {
 
 .sbtn {
     box-sizing: border-box;
-    width: 3%;
+    width: 5%;
     height: 100%;
 
     background-color: #dda15e;
@@ -67,6 +74,8 @@ body {
     /* needed for ::before */
     overflow: hidden;
     z-index: 1;
+
+    margin-right: 14px;
 }
 
 .sbtn::before {
@@ -100,6 +109,8 @@ body {
     margin-right: auto;
     border-radius: 100%;
 }
+
+
 
 
 /* =========================
@@ -281,7 +292,7 @@ textarea::-webkit-scrollbar {
     margin-right: 5px;
 }
 
-#prevNotes {
+.sideIcon {
     width: 0px;
     height: 40px;
     padding: 0px;
@@ -295,7 +306,7 @@ textarea::-webkit-scrollbar {
     transition: width 0.3s ease;
 }
 
-#prevNotes.open {
+#sidebar.open .sideIcon {
     display: flex;
     flex-direction: column;
     justify-content: center;
