@@ -62,7 +62,14 @@
         </div>
 
         <!-- Popups / Containers -->
-        <div id="savedCont" class="butbox"></div>
+        <div id="savedCont" class="butbox">
+            <div id="searchbar" class="insideSavedContent"></div>
+            <% for (let note of allnotes) { %>
+                <div id="actualSavedCont" class="insideSavedContent">
+                    <%= note.title %>
+                </div>
+            <% } %>
+        </div>
         <div id="aboutBox" class="butbox"></div>
 
     </div>

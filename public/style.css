@@ -324,21 +324,47 @@ textarea::-webkit-scrollbar {
 /* =========================
    Popup Containers
    ========================= */
+   #savedCont,
+   #aboutBox {
+       position: absolute;
+       top: 68px;
+       left: 300px;
+      
+       z-index: 999;
 
-#savedCont,
-#aboutBox {
-    position: absolute;
-    top: 78px;
-    left: 259px;
+       width: 600px;
+       height: 400px;
+       border-radius: 7px;
+       background-color: #dda15e;
+       display: none;
+       padding: 20px;
+       overflow-y: auto;
+   }
 
-    width: 600px;
-    height: 400px;
+   #savedCont.open,
+   #aboutBox.open {
+       display: block;  }
 
-    background-color: #dda15e;
-    display: none;
+#searchbar {
+    
+    width: 500px;
+    height: 10%;
+    left: 50px;
+    top: 25px;
+    /* center it horizontally inside the flex column */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    border-radius: 6px;
+    /* replaces top: 20px */
+    background-color: #bc6c25;
 }
 
-#savedCont.open,
-#aboutBox.open {
-    display: block;
+#actualSavedCont {
+    width: 500px;
+    height: 30%;
+    margin-top: 20px;
+    background-color: #bc6c25;
+    border-radius: 6px;
+    margin-left: 50px;
 }

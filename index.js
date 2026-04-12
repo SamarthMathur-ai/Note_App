@@ -11,6 +11,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.urlencoded({extended: false}));
 
+app.set("view engine", "ejs");
+
+app.get("/", (req,res)=> {
+    res.render("index", {allnotes: users});
+})
+
 app.post("/save", (req,res)=> {
     const body = req.body;
     users.push({...body, id: users.length+1});
