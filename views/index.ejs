@@ -26,6 +26,7 @@
                 <img src="menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="menu" class="appbarimg">
             </button>
             <p> My first simple notes app</p>
+            <button id="newbtn" class="sbtn">+</button>
             <button id="savebtn" class="sbtn">Save</button>
             <button id="deletebtn" class="sbtn">Delete</button>
         </div>
@@ -66,7 +67,11 @@
             <div id="searchbar" class="insideSavedContent"></div>
             <% for (let note of allnotes) { %>
                 <div id="actualSavedCont" class="insideSavedContent">
-                    <%= note.title %>
+                    <h3><%= note.title%></h3>
+                    <p><%= note.content%></p>
+                    <div>
+                        <button onclick="onButton('<%= note.id%>')">open</button>
+                    </div>
                 </div>
             <% } %>
         </div>

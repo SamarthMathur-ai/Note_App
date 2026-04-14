@@ -1,5 +1,8 @@
 
 const savebtn = document.querySelector("#savebtn");
+const newbtn = document.querySelector("#newbtn");
+const deletebtn = document.querySelector("#deletebtn");
+let currId = null;
 
 const saveBtnFunc = async()=>{
     const proceed = confirm("Do you want to overwrite your previously saved file.");
@@ -12,17 +15,21 @@ const saveBtnFunc = async()=>{
         const update = {
             title : head.value,
             content : note.value,
-            time : new Date()
+            id : currId
         };
         console.log(update);
+        
 
-        await fetch('/save', {
+        const response = await fetch('/save', {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'
             },
             body : JSON.stringify(update)       
         })
+        const result = await response.json();
+
+        currId = result.id;
         
     }
 
@@ -59,3 +66,53 @@ const saveBtnFunc = async()=>{
 }
 
 savebtn.addEventListener('click', saveBtnFunc);
+
+
+
+/// OPEN BUTTON
+window.onButton = async(id) => {
+    const response = await fetch(`/getNote/${id}`);
+    const result = await response.json();
+    currId = result.id;
+    const head = document.querySelector("#head");
+    const note = document.querySelector("#note");
+    head.value = result.title;
+    note.value = result.content;
+    note.readOnly = false;
+}
+
+
+const newNoteFunc = () => {
+    const proceed = confirm("Do you want to start a new note");
+    if(proceed) {
+        currId = null;
+        const head = document.querySelector("#head");
+        const note = document.querySelector("#note");
+        head.value = "";
+        note.value = "";
+        note.readOnly = true;
+    } 
+}
+
+
+newbtn.addEventListener('click',newNoteFunc);
+
+const deleteBtnFunc = async() => {
+    const proceed = confirm("Are you sure you want to delete this note?");
+    if(proceed) {
+        // if the function is saved already in the json file then we have to delete it 
+        if(currId != null) {
+            const response = await fetch(`/delete/${currId}`,{
+                method : 'DELETE'
+            });
+        }
+        currId = null;
+        const head = document.querySelector("#head");
+        const note = document.querySelector("#note");
+        head.value = "";
+        note.value = "";
+        note.readOnly = true;
+    }
+}
+
+deletebtn.addEventListener('click',deleteBtnFunc);

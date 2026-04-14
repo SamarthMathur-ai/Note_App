@@ -361,6 +361,9 @@ textarea::-webkit-scrollbar {
 }
 
 #actualSavedCont {
+    display: flex;
+    flex-direction: column;
+    
     width: 500px;
     height: 30%;
     margin-top: 20px;
