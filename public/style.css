@@ -370,4 +370,6 @@ textarea::-webkit-scrollbar {
     background-color: #bc6c25;
     border-radius: 6px;
     margin-left: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
