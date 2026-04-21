@@ -39,15 +39,15 @@
                 <div class="content">
                     <div class="iconlayer">
                         <img src="book_ribbon_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="book_ribbon" class="imgicon">
-                        <img src="info_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="info" class="imgicon">
+                        <!-- <img src="info_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="info" class="imgicon"> -->
                     </div>
                     <div class="sidebuttcon">
                         <button id="prevNotes" class="sbtn sideIcon">
                             <p>Saved Notes</p>
                         </button>
-                        <button id="about" class="sbtn sideIcon">
+                        <!-- <button id="about" class="sbtn sideIcon">
                             <p>About</p>
-                        </button>
+                        </button> -->
                     </div>
                 </div>
                 
@@ -64,13 +64,13 @@
 
         <!-- Popups / Containers -->
         <div id="savedCont" class="butbox">
-            <div id="searchbar" class="insideSavedContent"></div>
+            <input type="text" id="searchbar" placeholder="Search here....">
             <% for (let note of allnotes) { %>
-                <div id="actualSavedCont" class="insideSavedContent">
+                <div class="actualSavedCont" data-id="<%= note.id %>">
                     <h3><%= note.title%></h3>
                     <p><%= note.content%></p>
                     <div>
-                        <button onclick="onButton('<%= note.id%>')">open</button>
+                        <button class="open-btn" onclick="window.onButton('<%= note.id%>')">open</button>
                     </div>
                 </div>
             <% } %>
@@ -78,6 +78,12 @@
         <div id="aboutBox" class="butbox"></div>
 
     </div>
+
+
+
+    <!-- LOADING SCREEN -->
+    
+    <div id="stage"></div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>

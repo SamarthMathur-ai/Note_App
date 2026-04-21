@@ -1,8 +1,21 @@
+// import { startSpiralAnimation } from "./loadingAnimation.js";
 
 const savebtn = document.querySelector("#savebtn");
 const newbtn = document.querySelector("#newbtn");
 const deletebtn = document.querySelector("#deletebtn");
 let currId = null;
+
+/// OPEN BUTTON
+window.onButton = async(id) => {
+    const response = await fetch(`/getNote/${id}`);
+    const result = await response.json();
+    currId = result.id;
+    const head = document.querySelector("#head");
+    const note = document.querySelector("#note");
+    head.value = result.title;
+    note.value = result.content;
+    note.readOnly = false;
+}
 
 const saveBtnFunc = async()=>{
     const proceed = confirm("Do you want to overwrite your previously saved file.");
@@ -29,8 +42,27 @@ const saveBtnFunc = async()=>{
         })
         const result = await response.json();
 
-        currId = result.id;
-        
+        // adding onto the html
+        if(currId == null) {
+            // Create a brand new card
+            const sidebar = document.querySelector("#savedCont");
+            const newNoteCard = `
+            <div class="actualSavedCont" data-id="${result.id}">
+            <h3>${update.title}</h3>
+            <p>${update.content}</p>
+            <button class="open-btn" onclick="window.onButton('${result.id}')">Open</button>
+        </div> 
+            `
+            sidebar.insertAdjacentHTML('beforeend', newNoteCard);
+        } else {
+            // It is an existing note: find the card and update it
+            const existingCard = document.querySelector(`.actualSavedCont[data-id="${currId}"]`);
+            if(existingCard) {
+                existingCard.querySelector('h3').textContent = update.title;
+                existingCard.querySelector('p').textContent = update.content;
+            }
+        }   
+        currId = result.id;  
     }
 
     /**
@@ -65,26 +97,20 @@ const saveBtnFunc = async()=>{
      */
 }
 
-savebtn.addEventListener('click', saveBtnFunc);
+savebtn.addEventListener('click',async ()=>{
+    await saveBtnFunc();
+});
 
 
 
-/// OPEN BUTTON
-window.onButton = async(id) => {
-    const response = await fetch(`/getNote/${id}`);
-    const result = await response.json();
-    currId = result.id;
-    const head = document.querySelector("#head");
-    const note = document.querySelector("#note");
-    head.value = result.title;
-    note.value = result.content;
-    note.readOnly = false;
-}
+
+
 
 
 const newNoteFunc = () => {
     const proceed = confirm("Do you want to start a new note");
     if(proceed) {
+        startSpiralAnimation('stage');
         currId = null;
         const head = document.querySelector("#head");
         const note = document.querySelector("#note");
@@ -95,7 +121,7 @@ const newNoteFunc = () => {
 }
 
 
-newbtn.addEventListener('click',newNoteFunc);
+
 
 const deleteBtnFunc = async() => {
     const proceed = confirm("Are you sure you want to delete this note?");
@@ -105,6 +131,11 @@ const deleteBtnFunc = async() => {
             const response = await fetch(`/delete/${currId}`,{
                 method : 'DELETE'
             });
+
+            const cardToDestroy = document.querySelector(`.actualSavedCont[data-id="${currId}"]`);
+            if(cardToDestroy) {
+                cardToDestroy.remove();
+            }
         }
         currId = null;
         const head = document.querySelector("#head");
@@ -116,3 +147,50 @@ const deleteBtnFunc = async() => {
 }
 
 deletebtn.addEventListener('click',deleteBtnFunc);
+
+
+
+// SAVING ON RELOAD
+
+
+// BEFORE RELOAD THINGS
+window.addEventListener('beforeunload',()=>{
+    const pagehead = document.querySelector("#head");
+    const pagecontent = document.querySelector("#note");
+
+    // save the things in browser session storage
+    sessionStorage.setItem('savedTitle',pagehead.value);
+    sessionStorage.setItem('savedContent',pagecontent.value);
+
+    // if currId exists
+    if(currId != null) {
+        sessionStorage.setItem('savedId',currId);
+    }
+    // else remove the already stored id
+    else {
+        sessionStorage.removeItem('savedId');
+    }
+})
+
+
+// AFTER RELOAD THINGS
+window.addEventListener('DOMContentLoaded',()=>{
+    const RecoveredTitle = sessionStorage.getItem('savedTitle');
+    const RecoveredContent = sessionStorage.getItem('savedContent');
+    const RecoveredId = sessionStorage.getItem('savedId');
+
+    // make sure they are not null
+    if(RecoveredTitle!=null && RecoveredContent!=null) {
+        document.querySelector("#head").value = RecoveredTitle || "" // FALL BACK TO OPERATOR;
+        document.querySelector("#note").value = RecoveredContent || "";
+
+        if(RecoveredId) {
+            currId = RecoveredId;
+            document.querySelector("#note").readOnly = false;
+        } else {
+            currId = null;
+        }
+    }
+
+
+})
