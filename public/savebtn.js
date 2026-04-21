@@ -110,13 +110,12 @@ savebtn.addEventListener('click',async ()=>{
 const newNoteFunc = () => {
     const proceed = confirm("Do you want to start a new note");
     if(proceed) {
-        startSpiralAnimation('stage');
         currId = null;
         const head = document.querySelector("#head");
         const note = document.querySelector("#note");
         head.value = "";
         note.value = "";
-        note.readOnly = true;
+        note.readOnly = false;
     } 
 }
 newbtn.addEventListener('click',newNoteFunc);
