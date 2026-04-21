@@ -119,6 +119,7 @@ const newNoteFunc = () => {
         note.readOnly = true;
     } 
 }
+newbtn.addEventListener('click',newNoteFunc);
 
 
 
