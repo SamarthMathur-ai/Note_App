@@ -1,3 +1,5 @@
+
+
 # My First Backend Project
 
 A json based storage notes web application for creating, saving, and managing notes.
@@ -40,7 +42,10 @@ Follow these instructions to get a copy of the projext and running on your local
 
 1. **Clone the repository**
    ```bash
-   git clone [https://github.com/SamarthMathur-ai/Note_App.git](https://github.com/SamarthMathur-ai/Note_App.git)
+   git clone https://github.com/SamarthMathur-ai/Note_App.git<img width="1919" height="904" alt="Screenshot 2026-04-24 185749" src="https://github.com/user-attachments/assets/3d1d65a7-020f-4ee2-a194-56dc3c70f798" />
+<img width="1916" height="911" alt="Screenshot 2026-04-24 185801" src="https://github.com/user-attachments/assets/c60b7884-9671-4622-a9a5-c7b1941fa50e" />
+
+
    cd Note_App
    npm install
    node server.js
