@@ -4,6 +4,12 @@
 
 A json based storage notes web application for creating, saving, and managing notes.
 
+<img width="1916" height="911" alt="Screenshot 2026-04-24 185801" src="https://github.com/user-attachments/assets/c60b7884-9671-4622-a9a5-c7b1941fa50e" />
+<img width="1919" height="904" alt="Screenshot 2026-04-24 185749" src="https://github.com/user-attachments/assets/89e59782-8f84-4d3a-b56f-55cd0ba62de6" />
+
+For full video [click here]().
+
+
 ## Key Features
 
 * **Zero Reload Architecture:** The UI stays perfectly synced with the backend using `fetch` API, hence gets realtime updated.
@@ -43,9 +49,6 @@ Follow these instructions to get a copy of the projext and running on your local
 1. **Clone the repository**
    ```bash
    git clone https://github.com/SamarthMathur-ai/Note_App.git<img width="1919" height="904" alt="Screenshot 2026-04-24 185749" src="https://github.com/user-attachments/assets/3d1d65a7-020f-4ee2-a194-56dc3c70f798" />
-<img width="1916" height="911" alt="Screenshot 2026-04-24 185801" src="https://github.com/user-attachments/assets/c60b7884-9671-4622-a9a5-c7b1941fa50e" />
-
-
    cd Note_App
    npm install
    node server.js
@@ -57,7 +60,7 @@ Follow these instructions to get a copy of the projext and running on your local
 Building this project solidified my understanding of:
 * Connecting a frontend UI to a Node.js backend using RESTful routes(`GET`, `POST`, `DELETE`). The videos that I used for referances are following:
    1. For basic API learning: [Youtube Link](https://www.youtube.com/watch?v=GZvSYJDk-us&t=471s).
-   2. For routing learning this playlist: [Youtube Link](https://www.youtube.com/watch?v=cJAyEOZQUQY&t=17s)
+   2. For routing learning this playlist: [Youtube Link](https://www.youtube.com/watch?v=cJAyEOZQUQY&t=17s).
  
 * Using sessionStorage for data persistence across page reloads. (I used ai to learn this).
 * Modularizing JavaScript files to keep code clean and maintainable.
