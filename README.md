@@ -30,7 +30,7 @@ A json based storage notes web application for creating, saving, and managing no
 
 ---
 
-# Getting Started
+## Getting Started
 
 Follow these instructions to get a copy of the projext and running on your local machine.
 
@@ -39,6 +39,11 @@ Follow these instructions to get a copy of the projext and running on your local
 * And then you can download `nodemon` but not necessary.
 
 1. **Clone the repository**
+   ```bash
+   git clone [
+   cd Note_App
+   
+   
 
 
 
