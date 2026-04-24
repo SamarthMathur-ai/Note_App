@@ -40,8 +40,22 @@ Follow these instructions to get a copy of the projext and running on your local
 
 1. **Clone the repository**
    ```bash
-   git clone [
+   git clone [https://github.com/SamarthMathur-ai/Note_App.git](https://github.com/SamarthMathur-ai/Note_App.git)
    cd Note_App
+   npm install
+   node server.js
+   # or use nodemon if you have it installed
+   # nodemon server.js
+   # Navigate to http://localhost:8080
+
+## What I learned
+Building this project solidified my understanding of:
+* Connecting a frontend UI to a Node.js backend using RESTful routes(`GET`, `POST`, `DELETE`). The videos that I used for referances are following:
+   1. For basic API learning: [Youtube Link](https://www.youtube.com/watch?v=GZvSYJDk-us&t=471s).
+   2. For routing learning this playlist: [Youtube Link](https://www.youtube.com/watch?v=cJAyEOZQUQY&t=17s)
+ 
+* Using sessionStorage for data persistence across page reloads. (I used ai to learn this).
+* Modularizing JavaScript files to keep code clean and maintainable.
    
    
 
