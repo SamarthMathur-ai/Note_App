@@ -7,7 +7,7 @@ A json based storage notes web application for creating, saving, and managing no
 <img width="1916" height="911" alt="Screenshot 2026-04-24 185801" src="https://github.com/user-attachments/assets/c60b7884-9671-4622-a9a5-c7b1941fa50e" />
 <img width="1919" height="904" alt="Screenshot 2026-04-24 185749" src="https://github.com/user-attachments/assets/89e59782-8f84-4d3a-b56f-55cd0ba62de6" />
 
-For full video [click here]().
+For full video [click here](https://www.linkedin.com/feed/update/urn:li:activity:7453443049914945536/).
 
 
 ## Key Features
@@ -31,7 +31,7 @@ For full video [click here]().
 
 ---
 
-##Future Updates:
+## Future Updates:
 * **SearchBar:** There is currently a searchbar but it doesn't work.
 * **Authentication:** After learning JWT Authentication I will apply it.
 * **Mongo DB:** Adding MongoDB and replacing the current json structure.
